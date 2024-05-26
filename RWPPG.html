@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-World Python Projects Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #f4f4f4;
+            background: linear-gradient(135deg, #2c211f, #4e433f);
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #d4af37;
+        }
+        .chapter {
+            margin: 2vw 0;
+            padding: 2vw;
+            border-bottom: 1px solid #d4af3764;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .content {
+            padding: 2vw;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            margin: 2vw 0;
+        }
+        .content pre {
+            background: #333;
+            color: #f4f4f4;
+            padding: 1vw;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="chapter">
+        <h1><a href="index.html" target="">Main Page</a></h1>
+    </div>
+    <div class="chapter">
+        <h1>Real-World Python Projects Gallery</h1>
+    </div>
+
+    <div class="chapter" id="project1">
+        <h2>Project 1: Web Scraping with BeautifulSoup</h2>
+        <div class="content">
+            <h3>Description</h3>
+            <p>Web scraping is a common task in which Python is widely used. This project demonstrates how to scrape a website using the BeautifulSoup library.</p>
+            <h3>Code Example</h3>
+            <pre><code>
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://example.com'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Extract data from the website
+...
+            </code></pre>
+            <h3>Usage</h3>
+            <p>This project can be used to extract data from various websites for analysis, research, or any other purpose.</p>
+        </div>
+    </div>
+
+    <div class="chapter" id="project2">
+        <h2>Project 2: Building a RESTful API with Flask</h2>
+        <div class="content">
+            <h3>Description</h3>
+            <p>RESTful APIs are a crucial part of web development. This project demonstrates how to build a simple RESTful API using the Flask framework.</p>
+            <h3>Code Example</h3>
+            <pre><code>
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    data = {'key': 'value'}
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+            </code></pre>
+            <h3>Usage</h3>
+            <p>This project can be used to create APIs for various purposes, such as serving data to web or mobile applications.</p>
+        </div>
+    </div>
+
+    <!-- Additional Projects -->
+
+    <div class="chapter" id="project3">
+        <h2>Project 3: Data Visualization with Matplotlib</h2>
+        <div class="content">
+            <h3>Description</h3>
+            <p>Matplotlib is a popular library for creating static, animated, and interactive visualizations in Python. This project demonstrates various data visualization techniques using Matplotlib.</p>
+            <h3>Code Example</h3>
+            <pre><code>
+import matplotlib.pyplot as plt
+
+# Plotting a simple line graph
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+plt.plot(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Simple Line Graph')
+plt.show()
+            </code></pre>
+            <h3>Usage</h3>
+            <p>This project can be used to visualize data in various domains, including science, engineering, finance, and more.</p>
+        </div>
+    </div>
+
+    <div class="chapter" id="project4">
+        <h2>Project 4: Machine Learning with Scikit-Learn</h2>
+        <div class="content">
+            <h3>Description</h3>
+            <p>Scikit-Learn is a powerful library for machine learning in Python. This project demonstrates how to build and train machine learning models using Scikit-Learn.</p>
+            <h3>Code Example</h3>
+            <pre><code>
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+# Load the Iris dataset
+iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2)
+
+# Train a k-nearest neighbors classifier
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+# Evaluate the model
+accuracy = knn.score(X_test, y_test)
+print("Accuracy:", accuracy)
+            </code></pre>
+            <h3>Usage</h3>
+            <p>This project can be used for various machine learning tasks, including classification, regression, clustering, and dimensionality reduction.</p>
+        </div>
+    </div>
+
+</body>
+</html>
