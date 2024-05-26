@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Basics 101</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #f4f4f4;
+            background: linear-gradient(135deg, #2c211f, #4e433f); /* Deep vintage gradient */
+            margin: 0;
+            padding: 0;
+        }
+        #page3 {
+            min-height: 100vh;
+            width: 100%;
+            padding: 4vw 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #d4af37;
+        }
+        .elem {
+            margin: 2vw 0;
+            padding: 2vw;
+            border-bottom: 1px solid #d4af3764; /* Gold border */
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .elem h2 {
+            font-size: 2vw;
+            position: relative;
+            z-index: 9;
+        }
+        .elem h2 a {
+            color: #d4af37;
+            text-decoration: none; /* Remove underline */
+        }
+        .elem:hover h2 a {
+            color: #d4af37;
+        }
+        .elem .overlay {
+            height: 100%;
+            width: 100%;
+            background-color: #d4af37; /* Gold color */
+            position: absolute;
+            left: 0;
+            top: -100%;
+            transition: all ease 0.25s;
+        }
+        .elem:hover .overlay {
+            top: 0;
+        }
+        .elem:hover h2 {
+            color: #800000; /* Maroon color */
+        }
+        .content {
+            padding: 2vw;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            margin: 2vw 0;
+        }
+        .content pre {
+            background: #333;
+            color: #f4f4f4;
+            padding: 1vw;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="page3">
+
+            <div class="content" id="chapter1">
+                <h2>Chapter 1: Introduction to Python</h2>
+                <h3>What is Python?</h3>
+                <p>Python is a high-level, interpreted programming language known for its readability and simplicity. It was created by Guido van Rossum and first released in 1991. Python's syntax is designed to be clear and straightforward, which makes it an excellent choice for beginners and experienced developers alike.</p>
+                
+                <h3>History of Python</h3>
+                <p>Python's development began in the late 1980s, and it has evolved significantly since its inception. The language was named after the British comedy series "Monty Python's Flying Circus," reflecting its creator's sense of humor. Python 2.0 was released in 2000, introducing many new features. Python 3.0, released in 2008, was a major update that addressed some fundamental design flaws and improved the language's consistency.</p>
+                
+                <h3>Why Learn Python?</h3>
+                <p>Python is widely used in various fields, including web development, data analysis, artificial intelligence, scientific computing, and more. Its versatility, combined with a large and supportive community, makes it a powerful tool for solving diverse problems. Learning Python opens up many opportunities in both academia and industry.</p>
+                
+                <h3>Setting Up Your Environment</h3>
+                <p>Before you can start coding in Python, you need to set up your development environment. Follow these steps to get started:</p>
+                <ul>
+                    <li><b>Install Python</b>: Download and install the latest version of Python from the official website (<a href="https://www.python.org/" target="_blank">https://www.python.org/</a>).</li>
+                    <li><b>Choose an Integrated Development Environment (IDE)</b>: Popular choices include PyCharm, Visual Studio Code, and Jupyter Notebook.</li>
+                    <li><b>Verify the Installation</b>: Open a terminal or command prompt and type <code>python --version</code> to ensure Python is installed correctly.</li>
+                    <li><b>Write Your First Program</b>: Create a new file called <code>hello.py</code> and add the following code:
+                        <pre><code>print("Hello, World!")</code></pre>
+                        Run the script by typing <code>python hello.py</code> in the terminal.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content" id="chapter2">
+                <h2>Chapter 2: Getting Started with Python</h2>
+                <h3>Writing Your First Python Program</h3>
+                <p>The first program most people write when learning a new programming language is the "Hello, World!" program. It's a simple program that prints "Hello, World!" to the screen. Here's how you can write it in Python:</p>
+                <pre><code>print("Hello, World!")</code></pre>
+                <p>This single line of code uses the <code>print</code> function to display the text "Hello, World!" on the screen. The <code>print</code> function is one of Python's built-in functions, and it's used to output data to the standard output device, which is usually the screen.</p>
+                
+                <h3>Running Your Python Program</h3>
+                <p>To run your Python program, follow these steps:</p>
+                <ol>
+                    <li>Open your terminal or command prompt.</li>
+                    <li>Navigate to the directory where you saved your Python file (e.g., <code>hello.py</code>).</li>
+                    <li>Type <code>python hello.py</code> and press Enter.</li>
+                </ol>
+                <p>You should see the following output:</p>
+                <pre><code>Hello, World!</code></pre>
+                
+                <h3>Using Comments in Python</h3>
+                <p>Comments are an essential part of writing clear and understandable code. They allow you to include notes and explanations within your code without affecting its execution. In Python, comments are created using the hash character (<code>#</code>). Everything after the hash character on a line is considered a comment and is ignored by the Python interpreter. Here's an example:</p>
+                <pre><code># This is a comment
+print("Hello, World!")  # This is also a comment</code></pre>
+                <p>Use comments to explain what your code does, why you made certain decisions, and any other information that will help you and others understand your code in the future.</p>
+            </div>
+
+            <div class="content" id="chapter3">
+                <h2>Chapter 3: Variables and Data Types</h2>
+                <h3>Introduction to Variables</h3>
+                <p>Variables are used to store data in a program. In Python, you don't need to declare a variable's type explicitly. Instead, you create a variable by assigning a value to it. Here's an example:</p>
+                <pre><code>message = "Hello, Python!"
+number = 42
+pi = 3.14159</code></pre>
+                <p>In this example, <code>message</code> is a string variable, <code>number</code> is an integer variable, and <code>pi</code> is a floating-point variable.</p>
+                
+                <h3>Basic Data Types</h3>
+                <p>Python has several built-in data types. Here are some of the most common ones:</p>
+                <ul>
+                    <li><b>String</b>: A sequence of characters, created by enclosing text in single or double quotes. Example: <code>"Hello, Python!"</code></li>
+                    <li><b>Integer</b>: A whole number without a decimal point. Example: <code>42</code></li>
+                    <li><b>Float</b>: A number with a decimal point. Example: <code>3.14159</code></li>
+                    <li><b>Boolean</b>: A value that can be either <code>True</code> or <code>False</code>. Example: <code>is_active = True</code></li>
+                </ul>
+                
+                <h3>Working with Strings</h3>
+                <p>Strings in Python can be manipulated in various ways. Here are some common string operations:</p>
+                <pre><code># Concatenation
+greeting = "Hello"
+name = "Alice"
+message = greeting + ", " + name + "!"
+print(message)  # Output: Hello, Alice!
+
+# Repetition
+laugh = "Ha"
+laughter = laugh * 3
+print(laughter)  # Output: HaHaHa
+
+# Length
+length = len(message)
+print(length)  # Output: 13</code></pre>
+                
+                <h3>Converting Data Types</h3>
+                <p>Sometimes, you need to convert a value from one data type to another. Python provides built-in functions for this purpose:</p>
+                <pre><code># Integer to string
+number = 42
+number_str = str(number)
+print(number_str)  # Output: "42"
+
+# String to integer
+age_str = "30"
+age = int(age_str)
+print(age)  # Output: 30
+
+# String to float
+pi_str = "3.14159"
+pi = float(pi_str)
+print(pi)  # Output: 3.14159</code></pre>
+            </div>
+
+            <div class="content" id="chapter4">
+                <h2>Chapter 4: Operators and Expressions</h2>
+                <h3>Arithmetic Operators</h3>
+                <p>Python supports several arithmetic operators for performing mathematical calculations:</p>
+                <ul>
+                    <li><b>Addition</b>: <code>+</code></li>
+                    <li><b>Subtraction</b>: <code>-</code></li>
+                    <li><b>Multiplication</b>: <code>*</code></li>
+                    <li><b>Division</b>: <code>/</code></li>
+                    <li><b>Floor Division</b>: <code>//</code> (integer division)</li>
+                    <li><b>Modulus</b>: <code>%</code> (remainder)</li>
+                    <li><b>Exponentiation</b>: <code>**</code> (power)</li>
+                </ul>
+                <p>Here are some examples of arithmetic operations:</p>
+                <pre><code>a = 10
+b = 3
+
+addition = a + b
+subtraction = a - b
+multiplication = a * b
+division = a / b
+floor_division = a // b
+modulus = a % b
+exponentiation = a ** b
+
+print("Addition:", addition)  # Output: 13
+print("Subtraction:", subtraction)  # Output: 7
+print("Multiplication:", multiplication)  # Output: 30
+print("Division:", division)  # Output: 3.3333333333333335
+print("Floor Division:", floor_division)  # Output: 3
+print("Modulus:", modulus)  # Output: 1
+print("Exponentiation:", exponentiation)  # Output: 1000</code></pre>
+                
+                <h3>Comparison Operators</h3>
+                <p>Comparison operators are used to compare values. They return a boolean value (<code>True</code> or <code>False</code>):</p>
+                <ul>
+                    <li><b>Equal to</b>: <code>==</code></li>
+                    <li><b>Not equal to</b>: <code>!=</code></li>
+                    <li><b>Greater than</b>: <code>></code></li>
+                    <li><b>Less than</b>: <code><</code></li>
+                    <li><b>Greater than or equal to</b>: <code>>=</code></li>
+                    <li><b>Less than or equal to</b>: <code><=</code></li>
+                </ul>
+                <p>Here are some examples of comparison operations:</p>
+                <pre><code>x = 5
+y = 10
+
+print(x == y)  # Output: False
+print(x != y)  # Output: True
+print(x > y)  # Output: False
+print(x < y)  # Output: True
+print(x >= y)  # Output: False
+print(x <= y)  # Output: True</code></pre>
+                
+                <h3>Logical Operators</h3>
+                <p>Logical operators are used to combine conditional statements:</p>
+                <ul>
+                    <li><b>and</b>: Returns <code>True</code> if both statements are true</li>
+                    <li><b>or</b>: Returns <code>True</code> if one of the statements is true</li>
+                    <li><b>not</b>: Reverses the result, returns <code>False</code> if the result is true</li>
+                </ul>
+                <p>Here are some examples of logical operations:</p>
+                <pre><code>a = True
+b = False
+
+print(a and b)  # Output: False
+print(a or b)  # Output: True
+print(not a)  # Output: False</code></pre>
+            </div>
+
+            <div class="content" id="chapter5">
+                <h2>Chapter 5: Control Flow</h2>
+                <h3>Conditional Statements</h3>
+                <p>Conditional statements allow you to execute different blocks of code based on certain conditions. The most common conditional statement is the <code>if</code> statement:</p>
+                <pre><code>x = 10
+
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is equal to 5")
+else:
+    print("x is less than 5")</code></pre>
+                <p>In this example, the <code>if</code> statement checks if <code>x</code> is greater than 5. If the condition is true, it prints "x is greater than 5". If the condition is false, the <code>elif</code> statement checks if <code>x</code> is equal to 5. If this condition is true, it prints "x is equal to 5". If none of the conditions are true, the <code>else</code> statement prints "x is less than 5".</p>
+                
+                <h3>Loops</h3>
+                <p>Loops are used to repeat a block of code multiple times. Python supports two types of loops: <code>for</code> loops and <code>while</code> loops.</p>
+                
+                <h4>For Loops</h4>
+                <p>A <code>for</code> loop is used to iterate over a sequence (e.g., a list, tuple, or string):</p>
+                <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)</code></pre>
+                <p>In this example, the <code>for</code> loop iterates over each element in the <code>fruits</code> list and prints it.</p>
+                
+                <h4>While Loops</h4>
+                <p>A <code>while</code> loop is used to repeat a block of code as long as a condition is true:</p>
+                <pre><code>count = 0
+
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+                <p>In this example, the <code>while</code> loop continues to execute the code block as long as <code>count</code> is less than 5. Inside the loop, <code>count</code> is incremented by 1 on each iteration.</p>
+                
+                <h3>Break and Continue</h3>
+                <p>The <code>break</code> statement is used to exit a loop prematurely, and the <code>continue</code> statement is used to skip the current iteration and proceed to the next one:</p>
+                <pre><code>for i in range(10):
+    if i == 5:
+        break
+    print(i)
+
+for i in range(10):
+    if i % 2 == 0:
+        continue
+    print(i)</code></pre>
+                <p>In the first loop, the <code>break</code> statement exits the loop when <code>i</code> equals 5. In the second loop, the <code>continue</code> statement skips the current iteration when <code>i</code> is an even number, so only odd numbers are printed.</p>
+            </div>
+
+            <div class="content" id="chapter6">
+                <h2>Chapter 6: Functions</h2>
+                <h3>Defining Functions</h3>
+                <p>Functions are reusable blocks of code that perform a specific task. You define a function using the <code>def</code> keyword:</p>
+                <pre><code>def greet(name):
+    print("Hello, " + name + "!")</code></pre>
+                <p>In this example, the <code>greet</code> function takes one parameter, <code>name</code>, and prints a greeting message.</p>
+                
+                <h3>Calling Functions</h3>
+                <p>To execute a function, you need to call it by its name and provide any required arguments:</p>
+                <pre><code>greet("Alice")
+greet("Bob")</code></pre>
+                <p>This code calls the <code>greet</code> function twice with different arguments, producing the following output:</p>
+                <pre><code>Hello, Alice!
+Hello, Bob!</code></pre>
+                
+                <h3>Returning Values</h3>
+                <p>Functions can return values using the <code>return</code> statement:</p>
+                <pre><code>def add(a, b):
+    return a + b</code></pre>
+                <p>In this example, the <code>add</code> function takes two parameters, <code>a</code> and <code>b</code>, and returns their sum.</p>
+                
+                <h3>Default Parameters</h3>
+                <p>Functions can have default parameter values, which are used if no argument is provided for that parameter:</p>
+                <pre><code>def greet(name="Guest"):
+    print("Hello, " + name + "!")</code></pre>
+                <p>In this example, the <code>greet</code> function has a default parameter value of "Guest". If no argument is provided, it uses the default value:</p>
+                <pre><code>greet()
+greet("Alice")</code></pre>
+                <p>This code produces the following output:</p>
+                <pre><code>Hello, Guest!
+Hello, Alice!</code></pre>
+            </div>
+
+            <div class="content" id="chapter7">
+                <h2>Chapter 7: Data Structures</h2>
+                <h3>Lists</h3>
+                <p>Lists are ordered collections of items that can be of any data type. You can create a list by enclosing items in square brackets:</p>
+                <pre><code>fruits = ["apple", "banana", "cherry"]</code></pre>
+                <p>Lists are indexed, starting from 0. You can access individual elements using their index:</p>
+                <pre><code>print(fruits[0])  # Output: apple
+print(fruits[1])  # Output: banana
+print(fruits[2])  # Output: cherry</code></pre>
+                
+                <h3>Tuples</h3>
+                <p>Tuples are similar to lists but are immutable, meaning their elements cannot be changed. You create a tuple by enclosing items in parentheses:</p>
+                <pre><code>colors = ("red", "green", "blue")</code></pre>
+                <p>You can access tuple elements using their index, just like with lists:</p>
+                <pre><code>print(colors[0])  # Output: red
+print(colors[1])  # Output: green
+print(colors[2])  # Output: blue</code></pre>
+                
+                <h3>Dictionaries</h3>
+                <p>Dictionaries are collections of key-value pairs. You create a dictionary by enclosing key-value pairs in curly braces:</p>
+                <pre><code>person = {"name": "Alice", "age": 30, "city": "New York"}</code></pre>
+                <p>You can access dictionary values using their keys:</p>
+                <pre><code>print(person["name"])  # Output: Alice
+print(person["age"])  # Output: 30
+print(person["city"])  # Output: New York</code></pre>
+                
+                <h3>Sets</h3>
+                <p>Sets are unordered collections of unique items. You create a set by enclosing items in curly braces:</p>
+                <pre><code>unique_numbers = {1, 2, 3, 4, 5}</code></pre>
+                <p>Sets do not allow duplicate values:</p>
+                <pre><code>unique_numbers = {1, 2, 2, 3, 4, 4, 5}
+print(unique_numbers)  # Output: {1, 2, 3, 4, 5}</code></pre>
+            </div>
+
+            <div class="content" id="chapter8">
+                <h2>Chapter 8: Modules and Packages</h2>
+                <h3>Importing Modules</h3>
+                <p>Modules are files containing Python code (variables, functions, classes) that can be imported and used in other Python programs. You can import a module using the <code>import</code> statement:</p>
+                <pre><code>import math
+
+print(math.sqrt(16))  # Output: 4.0</code></pre>
+                <p>In this example, the <code>math</code> module is imported, and the <code>sqrt</code> function is used to calculate the square root of 16.</p>
+                
+                <h3>Creating Your Own Modules</h3>
+                <p>You can create your own modules by writing Python code in a file with a <code>.py</code> extension. Here's an example:</p>
+                <pre><code># my_module.py
+def greet(name):
+    print("Hello, " + name + "!")</code></pre>
+                <p>You can then import and use this module in another Python file:</p>
+                <pre><code># main.py
+import my_module
+
+my_module.greet("Alice")  # Output: Hello, Alice!</code></pre>
+                
+                <h3>Packages</h3>
+                <p>Packages are collections of modules organized in directories. Each package directory contains a special <code>__init__.py</code> file, which can be empty or include package initialization code. Here's an example of a package structure:</p>
+                <pre><code>my_package/
+    __init__.py
+    module1.py
+    module2.py</code></pre>
+                <p>You can import modules from a package using the dot notation:</p>
+                <pre><code>import my_package.module1
+import my_package.module2</code></pre>
+            </div>
+
+            <div class="content" id="chapter9">
+                <h2>Chapter 9: File Handling</h2>
+                <h3>Reading from a File</h3>
+                <p>You can read from a file using the <code>open</code> function with the <code>'r'</code> mode:</p>
+                <pre><code>file = open("example.txt", "r")
+content = file.read()
+print(content)
+file.close()</code></pre>
+                <p>It's a good practice to use a <code>with</code> statement to handle file operations, as it ensures the file is properly closed after its suite finishes:</p>
+                <pre><code>with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)</code></pre>
+                
+                <h3>Writing to a File</h3>
+                <p>You can write to a file using the <code>open</code> function with the <code>'w'</code> mode:</p>
+                <pre><code>file = open("example.txt", "w")
+file.write("Hello, World!")
+file.close()</code></pre>
+                <p>Again, it's better to use a <code>with</code> statement for file operations:</p>
+                <pre><code>with open("example.txt", "w") as file:
+    file.write("Hello, World!")</code></pre>
+                
+                <h3>Appending to a File</h3>
+                <p>You can append to a file using the <code>open</code> function with the <code>'a'</code> mode:</p>
+                <pre><code>with open("example.txt", "a") as file:
+    file.write("\nAppend this line.")</code></pre>
+            </div>
+
+            <div class="content" id="chapter10">
+                <h2>Chapter 10: Error Handling</h2>
+                <h3>Introduction to Exceptions</h3>
+                <p>Exceptions are errors that occur during the execution of a program. To handle exceptions, you can use the <code>try</code> and <code>except</code> blocks:</p>
+                <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")</code></pre>
+                <p>In this example, the code inside the <code>try</code> block raises a <code>ZeroDivisionError</code>, which is then caught by the <code>except</code> block, and an appropriate message is printed.</p>
+                
+                <h3>Handling Multiple Exceptions</h3>
+                <p>You can handle multiple exceptions by specifying them as a tuple in the <code>except</code> block:</p>
+                <pre><code>try:
+    result = 10 / 0
+except (ZeroDivisionError, ValueError):
+    print("An error occurred")</code></pre>
+                
+                <h3>Using the <code>else</code> and <code>finally</code> Blocks</h3>
+                <p>The <code>else</code> block can be used to execute code if no exceptions are raised, and the <code>finally</code> block can be used to execute code regardless of whether an exception was raised or not:</p>
+                <pre><code>try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+else:
+    print("Result:", result)
+finally:
+    print("Execution complete")</code></pre>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
