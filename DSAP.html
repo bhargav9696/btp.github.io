@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures and Algorithms Playground</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #f4f4f4;
+            background: linear-gradient(135deg, #2c211f, #4e433f); /* Deep vintage gradient */
+            margin: 0;
+            padding: 0;
+        }
+        #page {
+            min-height: 100vh;
+            width: 100%;
+            padding: 4vw 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #d4af37;
+        }
+        .elem {
+            margin: 2vw 0;
+            padding: 2vw;
+            border-bottom: 1px solid #d4af3764; /* Gold border */
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .elem h2 {
+            font-size: 2vw;
+            position: relative;
+            z-index: 9;
+        }
+        .elem h2 a {
+            color: #d4af37;
+            text-decoration: none; /* Remove underline */
+        }
+        .elem:hover h2 a {
+            color: #d4af37;
+        }
+        .elem .overlay {
+            height: 100%;
+            width: 100%;
+            background-color: #d4af37; /* Gold color */
+            position: absolute;
+            left: 0;
+            top: -100%;
+            transition: all ease 0.25s;
+        }
+        .elem:hover .overlay {
+            top: 0;
+        }
+        .elem:hover h2 {
+            color: #800000; /* Maroon color */
+        }
+        .content {
+            padding: 2vw;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            margin: 2vw 0;
+        }
+        .content pre {
+            background: #333;
+            color: #f4f4f4;
+            padding: 1vw;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 1vw 0;
+            background: #4e433f;
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+
+            <div class="content" id="chapter1">
+                <h2>Chapter 1: Introduction to Data Structures</h2>
+                <p>Data structures are fundamental concepts in programming that allow us to store and organize data efficiently. Understanding data structures and algorithms is essential for writing efficient and optimized code.</p>
+                <p>This book will cover various data structures and algorithms, providing examples in Python to help you understand and implement them effectively.</p>
+            </div>
+
+            <div class="content" id="chapter2">
+                <h2>Chapter 2: Arrays</h2>
+                <h3>Introduction</h3>
+                <p>An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together.</p>
+                
+                <h3>Creating an Array</h3>
+                <pre><code>import array
+
+arr = array.array('i', [1, 2, 3, 4, 5])
+print(arr)
+</code></pre>
+                
+                <h3>Accessing Elements</h3>
+                <pre><code>print(arr[0])  # Output: 1
+print(arr[2])  # Output: 3
+</code></pre>
+                
+                <h3>Inserting Elements</h3>
+                <pre><code>arr.insert(1, 10)  # Insert 10 at index 1
+print(arr)
+</code></pre>
+                
+                <h3>Removing Elements</h3>
+                <pre><code>arr.remove(3)  # Remove the first occurrence of 3
+print(arr)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter3">
+                <h2>Chapter 3: Linked Lists</h2>
+                <h3>Introduction</h3>
+                <p>A linked list is a linear data structure where each element is a separate object, called a node. Each node contains data and a reference (or link) to the next node in the sequence.</p>
+                
+                <h3>Singly Linked List</h3>
+                <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(temp.data)
+            temp = temp.next
+
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.append(3)
+ll.print_list()
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter4">
+                <h2>Chapter 4: Stacks and Queues</h2>
+                <h3>Stacks</h3>
+                <p>A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. You can think of it as a stack of plates; you can only take the top plate off first.</p>
+                
+                <h3>Implementing a Stack</h3>
+                <pre><code>class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, data):
+        self.stack.append(data)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(stack.pop())  # Output: 3
+</code></pre>
+                
+                <h3>Queues</h3>
+                <p>A queue is a linear data structure that follows the First In, First Out (FIFO) principle. You can think of it as a line of people waiting for a service; the first person in line is served first.</p>
+                
+                <h3>Implementing a Queue</h3>
+                <pre><code>class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, data):
+        self.queue.append(data)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def peek(self):
+        if not self.is_empty():
+            return self.queue[0]
+
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+print(queue.dequeue())  # Output: 1
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter5">
+                <h2>Chapter 5: Trees</h2>
+                <h3>Introduction</h3>
+                <p>A tree is a hierarchical data structure consisting of nodes, with a single node as the root. Each node has zero or more child nodes, and there are no cycles in the structure.</p>
+                
+                <h3>Binary Trees</h3>
+                <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, data):
+        if self.root is None:
+            self.root = Node(data)
+        else:
+            self._insert(self.root, data)
+
+    def _insert(self, root, data):
+        if data < root.data:
+            if root.left is None:
+                root.left = Node(data)
+            else:
+                self._insert(root.left, data)
+        else:
+            if root.right is None:
+                root.right = Node(data)
+            else:
+                self._insert(root.right, data)
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.data)
+            self.inorder(root.right)
+
+tree = BinaryTree()
+tree.insert(10)
+tree.insert(5)
+tree.insert(20)
+tree.inorder(tree.root)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter6">
+                <h2>Chapter 6: Graphs</h2>
+                <h3>Introduction</h3>
+                <p>A graph is a collection of nodes (or vertices) and edges connecting them. Graphs can be used to model many types of relationships and networks.</p>
+                
+                <h3>Graph Representation</h3>
+                <pre><code>class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_edge(self, u, v):
+        if u not in self.graph:
+            self.graph[u] = []
+        self.graph[u].append(v)
+
+    def print_graph(self):
+        for node in self.graph:
+            print(f"{node} -> {self.graph[node]}")
+
+g = Graph()
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(1, 2)
+g.add_edge(2, 0)
+g.add_edge(2, 3)
+g.print_graph()
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter7">
+                <h2>Chapter 7: Hash Tables</h2>
+                <h3>Introduction</h3>
+                <p>A hash table is a data structure that maps keys to values using a hash function. It allows for fast data retrieval.</p>
+                
+                <h3>Implementing a Hash Table</h3>
+                <pre><code>class HashTable:
+    def __init__(self):
+        self.table = [None] * 10
+
+    def hash_function(self, key):
+        return key % len(self.table)
+
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        self.table[index] = value
+
+    def get(self, key):
+        index = self.hash_function(key)
+        return self.table[index]
+
+ht = HashTable()
+ht.insert(10, "Value for 10")
+ht.insert(20, "Value for 20")
+print(ht.get(10))
+print(ht.get(20))
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter8">
+                <h2>Chapter 8: Sorting Algorithms</h2>
+                <h3>Bubble Sort</h3>
+                <pre><code>def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(arr)
+print("Sorted array is:", arr)
+</code></pre>
+                
+                <h3>Quick Sort</h3>
+                <pre><code>def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    for j in range(low, high):
+        if arr[j] < pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return i+1
+
+def quick_sort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quick_sort(arr, low, pi-1)
+        quick_sort(arr, pi+1, high)
+
+arr = [10, 7, 8, 9, 1, 5]
+n = len(arr)
+quick_sort(arr, 0, n-1)
+print("Sorted array is:", arr)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter9">
+                <h2>Chapter 9: Searching Algorithms</h2>
+                <h3>Linear Search</h3>
+                <pre><code>def linear_search(arr, x):
+    for i in range(len(arr)):
+        if arr[i] == x:
+            return i
+    return -1
+
+arr = [2, 3, 4, 10, 40]
+x = 10
+result = linear_search(arr, x)
+print("Element is present at index", result)
+</code></pre>
+                
+                <h3>Binary Search</h3>
+                <pre><code>def binary_search(arr, l, r, x):
+    if r >= l:
+        mid = l + (r - l) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            return binary_search(arr, l, mid-1, x)
+        else:
+            return binary_search(arr, mid+1, r, x)
+    else:
+        return -1
+
+arr = [2, 3, 4, 10, 40]
+x = 10
+result = binary_search(arr, 0, len(arr)-1, x)
+print("Element is present at index", result)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter10">
+                <h2>Chapter 10: Recursion</h2>
+                <h3>Introduction</h3>
+                <p>Recursion is a method where the solution to a problem depends on solutions to smaller instances of the same problem.</p>
+                
+                <h3>Factorial</h3>
+                <pre><code>def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+print(factorial(5))  # Output: 120
+</code></pre>
+                
+                <h3>Fibonacci</h3>
+                <pre><code>def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(6))  # Output: 8
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter11">
+                <h2>Chapter 11: Dynamic Programming</h2>
+                <h3>Introduction</h3>
+                <p>Dynamic programming is a method for solving complex problems by breaking them down into simpler subproblems.</p>
+                
+                <h3>Fibonacci</h3>
+                <pre><code>def fibonacci(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    return memo[n]
+
+print(fibonacci(6))  # Output: 8
+</code></pre>
+                
+                <h3>Knapsack Problem</h3>
+                <pre><code>def knapsack(W, wt, val, n):
+    dp = [[0 for x in range(W+1)] for x in range(n+1)]
+    for i in range(n+1):
+        for w in range(W+1):
+            if i == 0 or w == 0:
+                dp[i][w] = 0
+            elif wt[i-1] <= w:
+                dp[i][w] = max(val[i-1] + dp[i-1][w-wt[i-1]], dp[i-1][w])
+            else:
+                dp[i][w] = dp[i-1][w]
+    return dp[n][W]
+
+val = [60, 100, 120]
+wt = [10, 20, 30]
+W = 50
+n = len(val)
+print(knapsack(W, wt, val, n))  # Output: 220
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter12">
+                <h2>Chapter 12: Greedy Algorithms</h2>
+                <h3>Introduction</h3>
+                <p>Greedy algorithms build up a solution piece by piece, always choosing the next piece that offers the most immediate benefit.</p>
+                
+                <h3>Activity Selection</h3>
+                <pre><code>def activity_selection(activities):
+    activities.sort(key=lambda x: x[1])
+    selected_activities = [activities[0]]
+    for i in range(1, len(activities)):
+        if activities[i][0] >= selected_activities[-1][1]:
+            selected_activities.append(activities[i])
+    return selected_activities
+
+activities = [(1, 2), (3, 4), (0, 6), (5, 7), (8, 9), (5, 9)]
+print(activity_selection(activities))
+</code></pre>
+                
+                <h3>Fractional Knapsack</h3>
+                <pre><code>class Item:
+    def __init__(self, value, weight):
+        self.value = value
+        self.weight = weight
+
+def fractional_knapsack(W, items):
+    items.sort(key=lambda x: x.value/x.weight, reverse=True)
+    total_value = 0
+    for item in items:
+        if item.weight <= W:
+            W -= item.weight
+            total_value += item.value
+        else:
+            total_value += item.value * (W / item.weight)
+            break
+    return total_value
+
+items = [Item(60, 10), Item(100, 20), Item(120, 30)]
+W = 50
+print(fractional_knapsack(W, items))  # Output: 240.0
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter13">
+                <h2>Chapter 13: Backtracking</h2>
+                <h3>Introduction</h3>
+                <p>Backtracking is a general algorithm for finding all (or some) solutions to computational problems, notably constraint satisfaction problems, by incrementally building candidates to the solutions.</p>
+                
+                <h3>N-Queens Problem</h3>
+                <pre><code>def is_safe(board, row, col, n):
+    for i in range(col):
+        if board[row][i] == 1:
+            return False
+    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+    for i, j in zip(range(row, n, 1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+    return True
+
+def solve_nqueens_util(board, col, n):
+    if col >= n:
+        return True
+    for i in range(n):
+        if is_safe(board, i, col, n):
+            board[i][col] = 1
+            if solve_nqueens_util(board, col+1, n):
+                return True
+            board[i][col] = 0
+    return False
+
+def solve_nqueens(n):
+    board = [[0] * n for _ in range(n)]
+    if solve_nqueens_util(board, 0, n):
+        for row in board:
+            print(row)
+    else:
+        print("Solution does not exist")
+
+solve_nqueens(4)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter14">
+                <h2>Chapter 14: Divide and Conquer</h2>
+                <h3>Introduction</h3>
+                <p>Divide and conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.</p>
+                
+                <h3>Merge Sort</h3>
+                <pre><code>def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+arr = [12, 11, 13, 5, 6, 7]
+merge_sort(arr)
+print("Sorted array is:", arr)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter15">
+                <h2>Chapter 15: Graph Algorithms</h2>
+                <h3>Introduction</h3>
+                <p>Graph algorithms are a set of instructions that traverse (visits nodes of a) graph. Such algorithms include algorithms for finding a specific node, all nodes connected to a specific node, all nodes within one connected component, all nodes with a specific property, etc.</p>
+                
+                <h3>Breadth-First Search (BFS)</h3>
+                <pre><code>from collections import deque
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    while queue:
+        vertex = queue.popleft()
+        if vertex not in visited:
+            print(vertex, end=" ")
+            visited.add(vertex)
+            queue.extend(set(graph[vertex]) - visited)
+
+graph = {0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}
+bfs(graph, 2)
+</code></pre>
+                
+                <h3>Depth-First Search (DFS)</h3>
+                <pre><code>def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(start, end=" ")
+    for next in set(graph[start]) - visited:
+        dfs(graph, next, visited)
+
+graph = {0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}
+dfs(graph, 2)
+</code></pre>
+            </div>
+
+            <div class="content" id="chapter16">
+                <h2>Chapter 16: Final Projects</h2>
+                <h3>Project 1: Implementing a Calculator</h3>
+                <p>For the final project, you can implement a calculator using stacks to evaluate expressions.</p>
+                
+                <h3>Project 2: Building a To-Do List Application</h3>
+                <p>Implement a to-do list application that allows users to add, remove, and mark tasks as completed. You can use various data structures to manage the tasks efficiently.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Data Structures and Algorithms Playground. All rights reserved.</p>
+    </footer>
+</body>
+</html>
